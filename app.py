@@ -18,8 +18,8 @@ from models import (
 st.set_page_config(page_title="SNSPD Performance Sandbox", layout="wide")
 st.title("SNSPD Performance Sandbox")
 st.caption(
-    "Phenomenological, slider-driven demo to explore IDE/SDE, DCR, jitter, pulse shape, and latching heuristics. "
-    "This model is accurate in a limited sense (quantum-source trends) but simplifies real device physics."
+    "Phenomenological, slider driven demo to explore IDE/SDE, DCR, jitter, pulse shape, and latching heuristics. "
+    "This model is accurate in a limited sense (quantum source trends) but simplifies real device physics."
 )
 
 # ------------------ Presets ------------------
