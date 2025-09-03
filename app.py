@@ -2,13 +2,20 @@
 import numpy as np
 import streamlit as st
 import matplotlib.pyplot as plt
-@@ -13,66 +14,156 @@
+
+from models import (
+    kinetic_inductance_nH,
+    ide_internal,
+    sde_system,
+    dcr_hz,
+    pulse_waveform,
+    jitter_fwhm_ps,
+    latching_risk,
     const,
 )
 
 # ------------------ Page header ------------------
 st.set_page_config(page_title="SNSPD Performance Sandbox", layout="wide")
-
 st.title("SNSPD Performance Sandbox")
 st.caption(
     "Phenomenological, slider-driven demo to explore IDE/SDE, DCR, jitter, pulse shape, and latching heuristics. "
@@ -93,8 +100,6 @@ with st.sidebar:
     st.slider("Optical Absorption (0–1)", 0.0, 1.0, 0.80, 0.01, key="absorption")
     st.slider("Coupling Factor (0–1)", 0.5, 1.0, const.COUPLING, 0.01, key="coupling")
 
-
-
     st.divider()
     st.subheader("Geometry")
     st.slider("Wire width (nm)", 50, 150, 100, 1, key="width_nm")
@@ -162,7 +167,9 @@ with col2:
 
     fig2, ax2 = plt.subplots()
     ax2.plot(t_ns, v)
-@@ -82,7 +173,17 @@
+    ax2.set_xlabel("Time (ns)")
+    ax2.set_ylabel("Pulse (arb. units)")
+    st.pyplot(fig2)
 
 st.divider()
 st.subheader("Latching Heuristic")
