@@ -2,20 +2,13 @@
 import numpy as np
 import streamlit as st
 import matplotlib.pyplot as plt
-
-from models import (
-    kinetic_inductance_nH,
-    ide_internal,
-    sde_system,
-    dcr_hz,
-    pulse_waveform,
-    jitter_fwhm_ps,
-    latching_risk,
+@@ -13,66 +14,156 @@
     const,
 )
 
 # ------------------ Page header ------------------
 st.set_page_config(page_title="SNSPD Performance Sandbox", layout="wide")
+
 st.title("SNSPD Performance Sandbox")
 st.caption(
     "Phenomenological, slider-driven demo to explore IDE/SDE, DCR, jitter, pulse shape, and latching heuristics. "
@@ -56,7 +49,7 @@ PRESETS = {
         "length_um": 5000.0,   # -> ~238 nH
         "rload_ohm": 100.0,
     },
-    "Low-noise-demo": {
+    "Low-noise demo": {
         # Goal: show DCR reduction (cooler + shorter λ) with some SDE trade
         "ib_over_ic": 0.86,
         "lambda_nm": 800.0,
@@ -99,6 +92,8 @@ with st.sidebar:
     st.slider("Temperature (K)", 0.8, 10.0, 2.0, 0.1, key="temp_K")
     st.slider("Optical Absorption (0–1)", 0.0, 1.0, 0.80, 0.01, key="absorption")
     st.slider("Coupling Factor (0–1)", 0.5, 1.0, const.COUPLING, 0.01, key="coupling")
+
+
 
     st.divider()
     st.subheader("Geometry")
@@ -167,9 +162,7 @@ with col2:
 
     fig2, ax2 = plt.subplots()
     ax2.plot(t_ns, v)
-    ax2.set_xlabel("Time (ns)")
-    ax2.set_ylabel("Pulse (arb. units)")
-    st.pyplot(fig2)
+@@ -82,7 +173,17 @@
 
 st.divider()
 st.subheader("Latching Heuristic")
@@ -186,4 +179,3 @@ if "_last_preset" in st.session_state:
             st.write("Shorter τ via higher $R_{load}$ and smaller effective $L_k$; some efficiency trade.")
         elif lp == "Low-noise demo":
             st.write("Cooler + shorter λ → lower DCR; SDE drops since we’re not cranking bias.")
-
