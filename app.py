@@ -30,7 +30,7 @@ KEYS = [
 ]
 
 PRESETS = {
-    "Match our spec": {
+    "Match-our-spec": {
         # Goal: high SDE @ 1550 nm (NbTiN ~90 nm, Lk~353 nH, 50 Ω)
         "ib_over_ic": 1.02,
         "lambda_nm": 1550.0,
@@ -43,7 +43,7 @@ PRESETS = {
         "length_um": 7413.0,   # -> ~353 nH in this toy model
         "rload_ohm": 50.0,
     },
-    "High throughput (faster reset)": {
+    "High-throughput (faster reset)": {
         # Goal: shorter tau for count-rate talking point
         "ib_over_ic": 0.95,
         "lambda_nm": 1550.0,
@@ -56,7 +56,7 @@ PRESETS = {
         "length_um": 5000.0,   # -> ~238 nH
         "rload_ohm": 100.0,
     },
-    "Low noise demo": {
+    "Low-noise-demo": {
         # Goal: show DCR reduction (cooler + shorter λ) with some SDE trade
         "ib_over_ic": 0.86,
         "lambda_nm": 800.0,
