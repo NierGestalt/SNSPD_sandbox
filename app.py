@@ -16,7 +16,7 @@ from models import (
 st.set_page_config(page_title="SNSPD Performance Sandbox", layout="wide")
 
 st.title("SNSPD Performance Sandbox")
-st.caption("Phenomenological, slider-driven demo to explore IDE/SDE, DCR, jitter, pulse shape, and latching heuristics.")
+st.caption("Phenomenological slider driven demo to explore IDE/SDE, DCR, jitter, pulse shape, and latching heuristics.")
 
 with st.sidebar:
     st.header("Controls")
@@ -85,10 +85,4 @@ st.subheader("Latching Heuristic")
 st.write(f"**Risk: {risk_level}** (score={risk_score:.2f}) — higher bias, lower Lk, and lower Rload increase score.")
 st.caption("Heuristic only; for teaching/demo.")
 
-st.info(
-    "Tips for the demo:\n"
-    "- Increase bias to watch IDE/SDE rise while DCR climbs.\n"
-    "- Narrow the wire or increase wavelength: the IDE curve center shifts; efficiency may require higher bias.\n"
-    "- Decrease Rload or Lk: pulse decays slower (τ increases) and latching risk can rise.\n"
-    "- Boost absorption to see SDE lift without touching noise.\n"
-)
+
